@@ -1,0 +1,12 @@
+[user]
+	name = Ruben Gees
+	email = rubengees7@gmail.com
+[core]
+	autocrlf = input
+	editor = nano
+[pull]
+	rebase = true
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
