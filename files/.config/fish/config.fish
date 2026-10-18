@@ -5,6 +5,7 @@ set fish_color_autosuggestion 777777
 set fish_color_comment 9e9e9e
 set fish_color_quote ffd700
 
+set -xg EDITOR nano
 set -xg COREPACK_ENABLE_AUTO_PIN 0
 set -xg ANDROID_HOME $HOME/Android/Sdk
 
