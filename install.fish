@@ -21,7 +21,7 @@ end
 
 # Configure yay, update the system and install packages from packages.txt
 yay -Syu --needed --noconfirm --cleanmenu=false --diffmenu=false --removemake --sudoloop --cleanafter --batchinstall \
-    --save <packages.txt
+    --save (cat packages.txt)
 
 # Create symbolic links for dotfiles
 pushd files
@@ -37,18 +37,6 @@ sudo chsh -s /usr/bin/fish $USER
 if not functions -q nvm
     fisher install jorgebucaran/nvm.fish
 end
-
-# Install pnpm if not already installed
-if not command -q pnpm
-    corepack enable
-    corepack install -g pnpm
-end
-
-# Enable and start the opencode.service for the user
-mkdir -p ~/.config/systemd/user
-cp opencode.service ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable --now opencode.service
 
 # Enable and start GDM
 sudo systemctl enable --now gdm
