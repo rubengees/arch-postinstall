@@ -41,6 +41,12 @@ end
 # Enable and start GDM
 sudo systemctl enable --now gdm
 
+# Enable GNOME autologin if the GDM configuration exists
+set -l gdm_config /etc/gdm/custom.conf
+if test -f $gdm_config
+    sudo sed -i 's/^#\?AutomaticLoginEnable=.*/AutomaticLoginEnable=true/' $gdm_config
+end
+
 # Set GNOME settings
 gsettings set org.gnome.shell enabled-extensions "['dash-to-dock@micxgx.gmail.com', 'gpu-screen-recorder@dec05eba.com', 'appindicatorsupport@rgcjonas.gmail.com']"
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Console.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
